@@ -13,7 +13,6 @@ export default {
     provide('menuVisible' ,menuVisible)
     //参数一 提供使用的名称，参数二 变量值
     router.afterEach(()=>{
-      console.log(width)
       if(width <= 500){
         menuVisible.value = false
       }

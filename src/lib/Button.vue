@@ -1,13 +1,13 @@
-<template >
-    <div>
-         <button><slot /></button>
-    </div>
+<template>
+  <div>
+    <button v-bind="$attrs">
+      <slot />
+    </button>
+  </div>
 </template>
 <script>
 export default {
-    
-}
+  inheritAttrs: false, //继承属性 false
+};
 </script>
-<style lang="scss" scoped>
-    
-</style>
+<style lang="scss" scoped></style>
