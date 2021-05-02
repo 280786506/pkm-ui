@@ -1,19 +1,19 @@
 <template>
   <div>
-    <button :class="{ checked:value }" @click="toggle">
+    <button :class="{ checked: value }" @click="toggle">
       <span></span>
     </button>
-    <p>{{value}}</p>
+    <p>{{ value }}</p>
   </div>
 </template>
 <script>
 export default {
-    props:{
-        value:Boolean
-    },
-  setup(props,context) {
+  props: {
+    value: Boolean,
+  },
+  setup(props, context) {
     const toggle = () => {
-        context.emit('update:value',!props.value)
+      context.emit("update:value", !props.value);
     };
     return { toggle };
   },
@@ -30,22 +30,21 @@ button {
   border-radius: $h/2;
   position: relative;
   transition: 250ms;
-}
-span {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: $h2;
-  height: $h2;
-  background: white;
-  border-radius: $h2 / 2;
-  transition: 250ms;
-}
-
-button.checked {
-  background: blue;
-}
-button.checked span {
-  left: calc(100% - #{$h2} - 2px);
+  > span {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: $h2;
+    height: $h2;
+    background: white;
+    border-radius: $h2 / 2;
+    transition: 250ms;
+  }
+  &.checked {
+    background: blue;
+    > span {
+      left: calc(100% - #{$h2} - 2px);
+    }
+  }
 }
 </style>
