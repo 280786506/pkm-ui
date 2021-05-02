@@ -1,10 +1,9 @@
 <template>
-  <div>hi</div>
   <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/TopNav.vue'
 
 export default {
   name: 'App',
