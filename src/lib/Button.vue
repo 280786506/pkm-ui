@@ -47,7 +47,7 @@ export default {
 
     return { classes };
   },
-  inheritAttrs: false, //继承属性 false
+  // inheritAttrs: false, //继承属性 false
 };
 </script>
 <style lang="scss">

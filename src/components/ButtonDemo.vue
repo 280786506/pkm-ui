@@ -1,6 +1,5 @@
 <template>
   <h1>Button组件</h1>
-
   <h2>基础用法</h2>
   <div>
     <Button> 默认按钮 </Button>
@@ -12,8 +11,7 @@
   <h2>禁用状态</h2>
   <div>
     <Button disabled> 默认按钮 </Button>
-    <Button theme="button" state="primary" @click="onClick"  
-    disabled> 主要按钮 </Button>
+    <Button theme="button" state="primary" disabled> 主要按钮 </Button>
     <Button theme="button" state="success" disabled> 成功按钮 </Button>
     <Button theme="button" state="warning" disabled> 警告按钮 </Button>
     <Button theme="button" state="danger" disabled> 危险按钮 </Button>
@@ -49,16 +47,10 @@
 <script>
 import Button from "../lib/Button.vue";
 export default {
-  setup() {
-    const onClick = () => {
-      console.log("123");
-    };
-    return { onClick };
-  },
   components: { Button },
 };
 </script>
-<style lang="" scoped>
+<style lang="scss" scoped>
 h1{
     margin: 10px 0;
 }
