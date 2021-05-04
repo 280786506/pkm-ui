@@ -4,7 +4,14 @@
     <h2>基础用法</h2>
     <Button state="primary" @click="toggle"> 打开Dialog  </Button>
     <Dialog v-model:visible="visible" :closeOnClickOverlay="true" 
-    :ok="ok" :cancel="cancel"/>
+    :ok="ok" :cancel="cancel">
+    <template v-slot:title>
+        <div>标题222</div>
+      </template>
+      <template v-slot:content>
+        <div>123</div>
+      </template>
+    </Dialog>
     <!--:visible="visible" @update:visible="visible = $event" -->
   </div>
 </template>

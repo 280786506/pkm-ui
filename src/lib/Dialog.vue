@@ -3,8 +3,13 @@
     <div class="pkm-dialog-overlay" @click="closeOnClickOverlay"></div>
     <div class="pkm-dialog-wrapper">
       <div class="pkm-dialog">
-        <header>标题 <span class="pkm-dialog-close" @click="cancel"></span></header>
-        <main>内容</main>
+        <header>
+          <slot name="title" />
+          <span class="pkm-dialog-close" @click="cancel"></span>
+        </header>
+        <main>
+          <slot name="content" />
+        </main>
         <footer>
           <Button @click="cancel">取消</Button>
           <Button state="primary" @click="ok">确定</Button>
@@ -18,6 +23,10 @@ import Button from "../lib/Button.vue";
 
 export default {
   props: {
+    title: {
+      type: String,
+      default: "标题",
+    },
     visible: {
       type: Boolean,
     },
