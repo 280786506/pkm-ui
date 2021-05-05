@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="pkm-dialog-overlay" @click="closeOnClickOverlay"></div>
-    <div class="pkm-dialog-wrapper">
-      <div class="pkm-dialog">
-        <header>
-          <slot name="title" />
-          <span class="pkm-dialog-close" @click="cancel"></span>
-        </header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button @click="cancel">取消</Button>
-          <Button state="primary" @click="ok">确定</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="pkm-dialog-overlay" @click="closeOnClickOverlay"></div>
+      <div class="pkm-dialog-wrapper">
+        <div class="pkm-dialog">
+          <header>
+            <slot name="title" />
+            <span class="pkm-dialog-close" @click="cancel"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button @click="cancel">取消</Button>
+            <Button state="primary" @click="ok">确定</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script>
@@ -45,12 +47,14 @@ export default {
       context.emit("update:visible", false);
     };
     const closeOnClickOverlay = () => {
-      if (closeOnClickOverlay) {
+        console.log('closeOnClickOverlay',props.closeOnClickOverlay)
+      if (props.closeOnClickOverlay) {
         close();
       }
     };
     const cancel = () => {
-      context.emit("cancel");
+      props.cancel?.()
+      // context.emit("cancel");
       close();
     };
     const ok = () => {
