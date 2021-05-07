@@ -30,18 +30,21 @@
   </div>
   <h1>loding</h1>
   <div>
-    <!-- <Button :loading="true" 
-    state="danger" disabled> 加载中 </Button> -->
     <div>
-    <Button disabled :loading="true"> 默认按钮 </Button>
-    <Button theme="button" state="primary" ]
-    disabled
-    :loading="true"
-    > 主要按钮 </Button>
-    <Button theme="button" state="success" disabled :loading="true"> 成功按钮 </Button>
-    <Button theme="button" state="warning" disabled :loading="true"> 警告按钮 </Button>
-    <Button theme="button" state="danger" disabled :loading="true"> 危险按钮 </Button>
-  </div>
+      <Button disabled :loading="true"> 默认按钮 </Button>
+      <Button theme="button" state="primary" disabled :loading="true">
+        主要按钮
+      </Button>
+      <Button theme="button" state="success" disabled :loading="true">
+        成功按钮
+      </Button>
+      <Button theme="button" state="warning" disabled :loading="true">
+        警告按钮
+      </Button>
+      <Button theme="button" state="danger" disabled :loading="true">
+        危险按钮
+      </Button>
+    </div>
   </div>
 </template>
 <script>
@@ -51,13 +54,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-h1{
-    margin: 10px 0;
+h1 {
+  margin: 10px 0;
 }
-h2{
-    margin: 15px 0;
+h2 {
+  margin: 15px 0;
 }
-button{
-    margin: 10px 10px 10px 10px;
+button {
+  margin: 10px 10px 10px 10px;
 }
 </style>

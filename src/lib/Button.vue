@@ -1,11 +1,18 @@
 <template>
-  <button class="pkm-button" :class="classes" :disabled="disabled">
-    <span class="pkm-loading" v-if="loading"></span>
-    <slot />
-  </button>
+  <div class="pkm-button-box">
+    <button class="pkm-button" :class="classes" :disabled="disabled">
+      <span class="pkm-loading" v-if="loading"></span>
+      <slot />
+    </button>
+    <img
+      class="pkm-button-img"
+      :src="images[stateKey.indexOf(`pkm-state-${state}`)]" v-if="!classes['pkm-theme-text']"
+    />
+  </div>
 </template>
 <script>
 import { computed } from "vue";
+// import x from '../assets/icons/yi.svg'
 export default {
   props: {
     theme: {
@@ -44,14 +51,27 @@ export default {
       }
       return c;
     });
-
-    return { classes };
+    const stateKey = [
+      'pkm-state-default',
+      'pkm-state-primary',
+      'pkm-state-success',
+      'pkm-state-warning',
+      'pkm-state-danger'
+    ]
+    const images = [
+      '../../public/images/kbs.png',
+      '../../public/images/kmg.png',
+      '../../public/images/mwzz.png',
+      '../../public/images/pkq.png',
+      '../../public/images/xhl.png'
+    ]
+    return { classes ,images,stateKey};
   },
   // inheritAttrs: false, //继承属性 false
 };
 </script>
 <style lang="scss">
-$h: 32px;
+$h: 64px;
 $border-color: #e2e2e2;
 $color: #333;
 $blue: #409eff;
@@ -59,11 +79,27 @@ $green: #67c23a;
 $yellow: #e6a23c;
 $red: #f56c6c;
 
+
 $radius: 4px;
+.pkm-button-box{
+  position: relative;
+  display: inline-block;
+  margin: 20px 10px;
+  /* z-index: 2; */
+  /* height: $h; */
+  &:hover .pkm-button-img{
+    top: -16px;
+  }
+ > .pkm-button-img {
+    position: absolute;
+    top: -10px;
+    right: -7px;
+    height: 30px;
+    transition: 0.25s;
+  }
+}
 .pkm-button {
   box-sizing: border-box;
-  /* max-height: $h; */
-  padding: 0 12px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -77,6 +113,8 @@ $radius: 4px;
   padding: 12px 20px;
   font-size: 14px;
   border-radius: 4px;
+  position: relative;
+  z-index: 1;
   & + & {
     margin-left: 8px;
   }

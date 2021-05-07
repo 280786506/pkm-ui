@@ -41,7 +41,7 @@ export default {
 };
 </script>
 <style lang="scss">
-$h: 22px;
+$h: 32px;
 $h2: $h - 4px;
 .pkm-switch {
   button {
@@ -58,14 +58,34 @@ $h2: $h - 4px;
       left: 2px;
       width: $h2;
       height: $h2;
-      background: white;
+      /* background: white; */
       border-radius: $h2 / 2;
       transition: 250ms;
+      background-image: url('../../public/images/jlq.png') ;
+      background-size: contain;
+      animation: jlq2 250ms linear;
     }
     &.checked {
-      background: blue;
+      background: rgb(229, 43, 43);
       > span {
         left: calc(100% - #{$h2} - 2px);
+        animation: jlq 250ms linear;
+      }
+    }
+    @keyframes jlq {
+      0%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes jlq2 {
+      0%{
+        transform: rotate(360deg);
+      }
+      100%{
+        transform: rotate(0);
       }
     }
   }

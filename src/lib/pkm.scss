@@ -1,10 +1,27 @@
-[class^="pkm-"], [class*=" pkm-"]* {
+[class^="pkm-"],
+[class*=" pkm-"]* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
 }
-
+@font-face {
+  font-family: "iconfont"; /* Project id 2530467 */
+  src: url("//at.alicdn.com/t/font_2530467_idegg2lm2c.woff2?t=1620322361255")
+      format("woff2"),
+    url("//at.alicdn.com/t/font_2530467_idegg2lm2c.woff?t=1620322361255")
+      format("woff"),
+    url("//at.alicdn.com/t/font_2530467_idegg2lm2c.ttf?t=1620322361255")
+      format("truetype");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
 // *::before {
 //   box-sizing: border-box;
 // }
@@ -21,5 +38,3 @@
 //   text-decoration: none;
 //   color: inherit;
 // }
-
-
