@@ -11,8 +11,12 @@ import TabsDemo from "./components/TabsDemo.vue";
 
 import MarkDown from './components/MarkDown.vue'
 
-const md = (fliename)=>{
-  return h(MarkDown,{path:`../markdown/${fliename}.md`,key:fliename})
+import intro from './markdown/intro.md'
+import getStarted from './markdown/getStarted.md'
+import install from './markdown/install.md'
+
+const md = (content,key)=>{
+  return h(MarkDown,{content:content,key:key})
 }
 
 const history = createWebHashHistory();
@@ -25,9 +29,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         { path: "", component: DocDemo },
-        { path: "intor", component: md('intor')},
-        { path: "getStarted", component: md('getStarted')},
-        { path: "install", component: md('install')},
+        { path: "intro", component: md(intro,'intro')},
+        { path: "getStarted", component: md(getStarted,'getStarted')},
+        { path: "install", component: md(install,'install')},
 
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },

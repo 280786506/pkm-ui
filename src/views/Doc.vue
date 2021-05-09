@@ -5,7 +5,7 @@
       <aside v-if="menuVisible">
         <h4>文档</h4>
         <ol>
-          <li><router-link to="/doc/intor">介绍</router-link></li>
+          <li><router-link to="/doc/intro">介绍</router-link></li>
           <li><router-link to="/doc/install">安装</router-link></li>
           <li><router-link to="/doc/getStarted">开始</router-link></li>
         </ol>
