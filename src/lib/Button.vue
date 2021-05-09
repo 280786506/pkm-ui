@@ -12,6 +12,13 @@
 </template>
 <script>
 import { computed } from "vue";
+
+import kbs from '../../public/images/kbs.png'
+import kmg from '../../public/images/kmg.png'
+import mwzz from '../../public/images/mwzz.png'
+import pkq from '../../public/images/pkq.png'
+import xhl from '../../public/images/xhl.png'
+
 // import x from '../assets/icons/yi.svg'
 export default {
   props: {
@@ -59,11 +66,11 @@ export default {
       'pkm-pokemon-xhl'
     ]
     const images = [
-      '../../public/images/kbs.png',
-      '../../public/images/kmg.png',
-      '../../public/images/mwzz.png',
-      '../../public/images/pkq.png',
-      '../../public/images/xhl.png'
+      kbs,
+      kmg,
+      mwzz,
+      pkq,
+      xhl
     ]
     return { classes ,images,stateKey};
   },
