@@ -1,25 +1,25 @@
 <template>
   <div class="demo">
-    <h2>{{component.__sourceCodeTitle}}</h2>
+    <h2>{{ component.__sourceCodeTitle }}</h2>
     <div class="demo-component">
       <component :is="component" />
     </div>
-    <div class="demo-actions"><Button size="mini" 
-    @click="codeVisible =! codeVisible"
-    >查看代码</Button></div>
+    <div class="demo-actions" v-if="!codeVisible">
+      <Button size="mini" @click="codeVisible = true">查看代码</Button>
+    </div>
+    <div class="demo-actions" v-if="codeVisible">
+      <Button size="mini" @click="codeVisible = false">隐藏代码</Button>
+    </div>
     <div class="demo-code" v-if="codeVisible">
-      <pre
-        class="language-html"
-        v-html="html"
-      ></pre>
+      <pre class="language-html" v-html="html"></pre>
     </div>
   </div>
 </template>
 <script lang="ts">
 import "prismjs";
 import "prismjs/themes/prism.css";
-import Button from '../lib/Button.vue'
-import { ref } from 'vue';
+import Button from "../lib/Button.vue";
+import { ref } from "vue";
 const Prism = (window as any).Prism;
 
 export default {
@@ -28,12 +28,15 @@ export default {
       type: Object,
     },
   },
-  components:{Button},
+  components: { Button },
   setup(props) {
-      console.log(props.component)
-    const codeVisible = ref(false)
-    const html =  Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
-    return { Prism ,codeVisible,html };
+    const codeVisible = ref(false);
+    const html = Prism.highlight(
+      props.component.__sourceCode,
+      Prism.languages.html,
+      "html"
+    );
+    return { Prism, codeVisible, html };
   },
 };
 </script>

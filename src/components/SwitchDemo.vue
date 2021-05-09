@@ -13,8 +13,6 @@ const Prism = (window as any).Prism
 export default {
   components: { Demo, SwitchDemo1 },
   setup() {
-    console.log(Prism)
-
     const bool = ref(true);
     return { bool, SwitchDemo1,Prism };
   },

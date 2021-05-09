@@ -47,7 +47,6 @@ export default {
       context.emit("update:visible", false);
     };
     const closeOnClickOverlay = () => {
-        console.log('closeOnClickOverlay',props.closeOnClickOverlay)
       if (props.closeOnClickOverlay) {
         close();
       }

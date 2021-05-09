@@ -113,7 +113,7 @@ aside {
         text-overflow: ellipsis;
         font-weight: 400;
         &:hover {
-          background: url("../../public/images/jlq.png") no-repeat 100%;
+          /* background: url("../../public/images/jlq.png") no-repeat 100%; */
           background-size: 15%;
           margin-left: 5px;
           color: #e32a2a;
@@ -121,8 +121,11 @@ aside {
         }
       }
       > .router-link-active {
-        background: url("../../public/images/jlq.png") no-repeat 100%;
+        /* background-image: url(require("../../public/images/jlq.png")); */
         background-size: 15%;
+        margin-left: 5px;
+        color: #e32a2a;
+        font-weight: bold;
       }
     }
   }
