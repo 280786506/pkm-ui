@@ -1,20 +1,15 @@
+<demo>使用JS打开</demo>
 <template>
-  <h1>Dialog组件</h1>
-  <Demo :component="DialogDemo1" />
-  <Demo :component="DialogDemo2" />
+    <Button state="primary" @click="open"> 通过JS打开 </Button>
 </template>
 <script>
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
 import { openDialog } from "../lib/openDialog";
-import Demo from "../components/Demo.vue";
-import DialogDemo1 from "../components/DialogDemo1.vue";
-import DialogDemo2 from "../components/DialogDemo2.vue";
 
 import { ref } from "vue";
 
 export default {
-  components: { Dialog, Button, Demo, DialogDemo1, DialogDemo2 },
   setup() {
     const visible = ref(false);
     const toggle = () => {
@@ -30,12 +25,19 @@ export default {
       openDialog({
         title: "通过JS设置的标题",
         content: "通过JS设置的内容",
-        closeOnClickOverlay: true,
-        ok() {},
-        cancel() {},
+        closeOnClickOverlay:true,
+        ok(){
+        },
+        cancel(){
+        }
       });
     };
-    return { visible, toggle, ok, cancel, open, DialogDemo1, DialogDemo2 };
+    return { visible, toggle, ok, cancel, open };
+  },
+  components: {
+    Dialog,
+    Button,
   },
 };
 </script>
+<style lang=""></style>

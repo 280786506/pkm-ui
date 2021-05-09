@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe E:\Software\Yarn\bin\yarn.js add svg-sprite-loader -D
+  C:\Program Files\nodejs\node.exe E:\Software\Yarn\bin\yarn.js add --dev mariked
 
 PATH: 
   E:\Software\cmder\vendor\git-for-windows\mingw64\bin;E:\Software\cmder\vendor\git-for-windows\usr\bin;C:\Users\olielie\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;E:\Software\Yarn\bin;C:\Program Files\nodejs;C:\Users\olielie\AppData\Local\Microsoft\WindowsApps;E:\Software\Microsoft VS Code\bin;C:\Users\olielie\AppData\Local\Yarn\bin;C:\Users\olielie\AppData\Roaming\npm;G:\驱动精灵\DriverGenius;G:\驱动精灵\DriverGenius\ksoft
@@ -14,17 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/repeat-element/download/repeat-element-1.1.4.tgz: Request failed "502 Bad Gateway"
-      at ResponseError.ExtendableBuiltin (E:\Software\Yarn\lib\cli.js:696:66)
-      at new ResponseError (E:\Software\Yarn\lib\cli.js:802:124)
-      at Request.<anonymous> (E:\Software\Yarn\lib\cli.js:66167:16)
+  Error: https://registry.npm.taobao.org/mariked: Not found
+      at Request.params.callback [as _callback] (E:\Software\Yarn\lib\cli.js:66097:18)
+      at Request.self.callback (E:\Software\Yarn\lib\cli.js:140749:22)
       at Request.emit (events.js:315:20)
-      at Request.module.exports.Request.onRequestResponse (E:\Software\Yarn\lib\cli.js:141626:10)
-      at ClientRequest.emit (events.js:315:20)
-      at HTTPParser.parserOnIncomingClient (_http_client.js:641:27)
-      at HTTPParser.parserOnHeadersComplete (_http_common.js:126:17)
-      at TLSSocket.socketOnData (_http_client.js:509:22)
-      at TLSSocket.emit (events.js:315:20)
+      at Request.<anonymous> (E:\Software\Yarn\lib\cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (E:\Software\Yarn\lib\cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -35,12 +35,13 @@ npm manifest:
       "build": "vite build"
     },
     "dependencies": {
+      "github-markdown-css": "^4.0.0",
       "vue": "^3.0.4",
       "vue-router": "4.0.0-beta.3"
     },
     "devDependencies": {
-      "sass": "^1.32.12",
       "@vue/compiler-sfc": "^3.0.4",
+      "sass": "^1.32.12",
       "vite": "^1.0.0-rc.13"
     }
   }
@@ -948,6 +949,11 @@ Lockfile:
     integrity sha1-SWaheV7lrOZecGxLe+txJX1uItM=
     dependencies:
       pump "^3.0.0"
+  
+  github-markdown-css@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.npm.taobao.org/github-markdown-css/download/github-markdown-css-4.0.0.tgz#be9f4caf7a389228d4c368336260ffc909061f35"
+    integrity sha1-vp9Mr3o4kijUw2gzYmD/yQkGHzU=
   
   glob-parent@^5.1.0, glob-parent@~5.1.0:
     version "5.1.2"

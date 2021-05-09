@@ -1,39 +1,67 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <router-link to="/" class="logo">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-pokecoin"></use>
+      </svg>
+    </router-link>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc/intor">文档</router-link>
+      </li>
+      <li>
+        <router-link to="/">GitHub</router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <span class="toggleAside" @click="toggleMenu" v-if="navVisible">
+      <div class="toggleAsideIconBox">
+        <svg class="icon tIcon2" aria-hidden="true" v-if="menuVisible">
+          <use xlink:href="#icon-open-pokeball"></use>
+        </svg>
+        <svg class="icon tIcon1" aria-hidden="true" v-else>
+          <use xlink:href="#icon-pokeball"></use>
+        </svg>
+      </div>
+    </span>
   </div>
 </template>
 
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props: {
+    navVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
-    return { toggleMenu };
+    return { toggleMenu, menuVisible };
   },
 };
 </script>
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
   display: flex;
-  padding: 16px;
+  padding: 12px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
+  background: #fff;
+  /* box-shadow: 0 0 10px #999; */
+  border-bottom: 1px solid #e2e2e2;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    > svg {
+      font-size: 36px;
+    }
   }
   > .menu {
     display: flex;
@@ -41,18 +69,27 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+      display: flex;
+      align-items: center;
     }
   }
   .toggleAside {
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: red;
+    /* background: red; */
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    > .toggleAsideIconBox {
+      /* position: relative; */
+      > svg {
+        font-size: 24px;
+        position: absolute;
+      }
+    }
   }
   @media (max-width: 500px) {
     > .menu {

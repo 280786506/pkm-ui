@@ -3,7 +3,6 @@
     <button :class="{ checked: value }" @click="toggle">
       <span></span>
     </button>
-    <p>{{ value }}</p>
   </div>
 </template>
 <script>
@@ -15,27 +14,6 @@ export default {
     const toggle = () => {
       context.emit("update:value", !props.value);
     };
-
-    // const ContentModel = {
-    //   find: () => {
-    //     setTimeout(() => {
-    //       const n = 0;
-    //       console.log('我执行了')
-    //       return n;
-    //     }, 1000);
-    //   },
-    // };
-
-    // let data = "";
-
-    // async function getFind() {
-    //   await newContentModel.find().then((res) => {
-    //     console.log('res',res)
-    //   });
-    // }
-
-    // getFind();
-
     return { toggle };
   },
 };

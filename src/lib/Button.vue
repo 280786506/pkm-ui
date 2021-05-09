@@ -6,7 +6,7 @@
     </button>
     <img
       class="pkm-button-img"
-      :src="images[stateKey.indexOf(`pkm-state-${state}`)]" v-if="!classes['pkm-theme-text']"
+      :src="images[stateKey.indexOf(`pkm-pokemon-${pokemon}`)]" v-if="!classes['pkm-theme-text']"
     />
   </div>
 </template>
@@ -23,9 +23,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    state: {
+    pokemon: {
       type: String,
-      default: "default",
+      default: "kbs",
     },
     size: {
       type: String,
@@ -36,27 +36,27 @@ export default {
     },
   },
   setup(props) {
-    const { theme, disabled, state, size, loading } = props;
+    const { theme, disabled, pokemon, size, loading } = props;
     const classes = computed(() => {
       let c = {
         [`pkm-theme-${theme}`]: theme,
-        [`pkm-state-${state}`]: state,
+        [`pkm-pokemon-${pokemon}`]: pokemon,
         [`pkm-size-${size}`]: size,
       };
       if (disabled) {
-        c[`pkm-theme-${state}-disabled`] = `${disabled}`;
+        c[`pkm-theme-${pokemon}-disabled`] = `${disabled}`;
       }
       if (loading) {
-        c[`pkm-theme-${state}-loading`] = `${loading}`;
+        c[`pkm-theme-${pokemon}-loading`] = `${loading}`;
       }
       return c;
     });
     const stateKey = [
-      'pkm-state-default',
-      'pkm-state-primary',
-      'pkm-state-success',
-      'pkm-state-warning',
-      'pkm-state-danger'
+      'pkm-pokemon-kbs',
+      'pkm-pokemon-kmg',
+      'pkm-pokemon-mwzz',
+      'pkm-pokemon-pkq',
+      'pkm-pokemon-xhl'
     ]
     const images = [
       '../../public/images/kbs.png',
@@ -128,7 +128,7 @@ $radius: 4px;
   }
 
   /* color */
-  &.pkm-state-default {
+  &.pkm-pokemon-kbs {
     &:hover,
     &:focus {
       color: #409eff;
@@ -139,7 +139,7 @@ $radius: 4px;
       color: #3a8ee6;
       border-color: #3a8ee6;
     }
-    &.pkm-theme-default-disabled {
+    &.pkm-theme-kbs-disabled {
       color: #c0c4cc;
       background-color: #fff;
       border-color: #ebeef5;
@@ -149,7 +149,7 @@ $radius: 4px;
       }
     }
   }
-  &.pkm-state-primary {
+  &.pkm-pokemon-kmg {
     background: $blue;
     border: 1px solid $blue;
     color: white;
@@ -162,7 +162,7 @@ $radius: 4px;
       background: #3a8ee6;
       border-color: #3a8ee6;
     }
-    &.pkm-theme-primary-disabled {
+    &.pkm-theme-kmg-disabled {
       background-color: #a0cfff;
       border-color: #a0cfff;
       &:hover,
@@ -171,7 +171,7 @@ $radius: 4px;
       }
     }
   }
-  &.pkm-state-success {
+  &.pkm-pokemon-mwzz {
     background: $green;
     border: 1px solid $green;
     color: white;
@@ -184,7 +184,7 @@ $radius: 4px;
       background: #5daf34;
       border-color: #5daf34;
     }
-    &.pkm-theme-success-disabled {
+    &.pkm-theme-mwzz-disabled {
       background-color: #b3e19d;
       border-color: #b3e19d;
       &:hover,
@@ -193,7 +193,7 @@ $radius: 4px;
       }
     }
   }
-  &.pkm-state-warning {
+  &.pkm-pokemon-pkq {
     background: $yellow;
     border: 1px solid $yellow;
     color: white;
@@ -206,7 +206,7 @@ $radius: 4px;
       background: #cf9236;
       border-color: #cf9236;
     }
-    &.pkm-theme-warning-disabled {
+    &.pkm-theme-pkq-disabled {
       background-color: #f3d19e;
       border-color: #f3d19e;
       &:hover,
@@ -215,7 +215,7 @@ $radius: 4px;
       }
     }
   }
-  &.pkm-state-danger {
+  &.pkm-pokemon-xhl {
     background: $red;
     border: 1px solid $red;
     color: white;
@@ -229,7 +229,7 @@ $radius: 4px;
       background: #dd6161;
       border-color: #dd6161;
     }
-    &.pkm-theme-danger-disabled {
+    &.pkm-theme-xhl-disabled {
       background-color: #fab6b6;
       border-color: #fab6b6;
       &:hover,
@@ -303,10 +303,10 @@ $radius: 4px;
     }
   }
 
-  &.pkm-state-primary,
-  &.pkm-state-success,
-  &.pkm-state-warning,
-  &.pkm-state-danger {
+  &.pkm-pokemon-kmg,
+  &.pkm-pokemon-mwzz,
+  &.pkm-pokemon-pkq,
+  &.pkm-pokemon-xhl {
     > .pkm-loading {
       border-top: 1px solid #fff;
       border-right: 1px solid #fff;

@@ -1,23 +1,26 @@
 <template>
-  <div class="gulu-tabs">
+  <div class="pkm-tabs">
     {{ name }}
-    <div class="gulu-tabs-nav" ref="container">
+    <div class="pkm-tabs-nav" ref="container">
       <div
-        class="gulu-tabs-nav-item"
+        class="pkm-tabs-nav-item"
         v-for="(t, index) in titles"
         :key="index"
         :class="{ selected: t.name === selected }"
         @click="select(t.name, index)"
-        :ref="el=>{if(el) navItems[index] = el}"
+        :ref="
+          (el) => {
+            if (t.name == selected) selectedItem = el;
+          }
+        "
       >
         {{ t.title }}
       </div>
-      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
-
+      <div class="pkm-tabs-nav-indicator" ref="indicator"></div>
     </div>
-    <div class="gulu-tabs-content">
+    <div class="pkm-tabs-content">
       <component
-        class="gulu-tabs-content-item"
+        class="pkm-tabs-content-item"
         :is="current"
         :key="current.props.name"
       />
@@ -26,7 +29,7 @@
 </template>
 <script lang="ts">
 import Tab from "./Tab.vue";
-import { computed, onMounted, onUpdated, ref } from 'vue';
+import { computed, ref, onMounted, onUpdated } from "vue";
 
 export default {
   props: {
@@ -35,29 +38,21 @@ export default {
     },
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([])
+    const selectedItem = ref<HTMLDivElement>(null);
     const defaults = context.slots.default();
-    const indicator = ref<HTMLDivElement>(null)
-    const container = ref<HTMLDivElement>()
-
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>();
     const x = ()=>{
-const divs = navItems.value
-      const result = divs.filter(
-        div => 
-        div.classList.contains('selected')
-      )[0]
-      const {width} = result.getBoundingClientRect()
-      indicator.value.style.width = width + 'px'
-
-      const {left:left1} = container.value.getBoundingClientRect()
-      const {left:left2} = result.getBoundingClientRect()
-
-      const left = left2 -left1
-      indicator.value.style.left = left + 'px' 
+        const { width } = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + "px";
+        const { left: left1 } = container.value.getBoundingClientRect();
+        const { left: left2 } = selectedItem.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + "px";
     }
-
     onMounted(x)
     onUpdated(x)
+    
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error("子组件必须是Tab标签");
@@ -78,15 +73,24 @@ const divs = navItems.value
       })[0];
     });
 
-    return { defaults, titles, select, current,navItems,indicator,container };
+    return {
+      defaults,
+      titles,
+      select,
+      current,
+      selectedItem,
+      indicator,
+      container,
+    };
   },
 };
 </script>
 <style lang="scss">
 $blue: #40a9ff;
+$red:#e32a2a;
 $color: #333;
 $border-color: #d9d9d9;
-.gulu-tabs {
+.pkm-tabs {
   &-nav {
     display: flex;
     color: $color;
@@ -100,17 +104,17 @@ $border-color: #d9d9d9;
         margin-left: 0;
       }
       &.selected {
-        color: $blue;
+        color: $red;
       }
     }
   }
   &-content {
     padding: 8px 0;
   }
-  &-nav-indicator{
+  &-nav-indicator {
     position: absolute;
     height: 3px;
-    background: $blue;
+    background: $red;
     left: 0;
     bottom: -1px;
     width: 100px;

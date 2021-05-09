@@ -13,7 +13,7 @@
           </main>
           <footer>
             <Button @click="cancel">取消</Button>
-            <Button state="primary" @click="ok">确定</Button>
+            <Button pokemon="kmg" @click="ok">确定</Button>
           </footer>
         </div>
       </div>

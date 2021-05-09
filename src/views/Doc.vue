@@ -1,21 +1,27 @@
 <template>
   <div class="layout">
-    <TopNav class="nav" />
+    <TopNav class="nav" navVisible />
     <div class="content">
       <aside v-if="menuVisible">
-        <h2>组件列表</h2>
+        <h4>文档</h4>
+        <ol>
+          <li><router-link to="/doc/intor">介绍</router-link></li>
+          <li><router-link to="/doc/install">安装</router-link></li>
+          <li><router-link to="/doc/getStarted">开始</router-link></li>
+        </ol>
+        <h4 >组件</h4>
         <ol>
           <li>
-            <router-link to="/doc/switch">Switch</router-link>
+            <router-link to="/doc/switch">Switch 开关</router-link>
           </li>
           <li>
-            <router-link to="/doc/button">Button</router-link>
+            <router-link to="/doc/button">Button 按钮</router-link>
           </li>
           <li>
-            <router-link to="/doc/dialog">Dialog</router-link>
+            <router-link to="/doc/dialog">Dialog 对话框</router-link>
           </li>
           <li>
-            <router-link to="/doc/tabs">tabs</router-link>
+            <router-link to="/doc/tabs">Tabs 标签页</router-link>
           </li>
         </ol>
       </aside>
@@ -47,7 +53,7 @@ export default {
   > .content {
     flex-grow: 1;
     padding-top: 50px;
-    padding-left: 156px;
+    padding-left: 150px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
@@ -60,29 +66,67 @@ export default {
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
-    /* background: lightgreen; */
+    padding: 60px 16px 16px 40px;
+    background: rgb(255, 255, 255);
   }
 }
 aside {
-  background: lightblue;
+  background: white;
   width: 150px;
-  padding: 16px;
+  padding: 16px ;
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 70px;
-  z-index: 1;
+  padding-top: 60px;
+  z-index: 2;
   height: 100%;
-  > h2 {
-    margin-bottom: 4px;
+
+  box-shadow: 0 0 10px #999;
+  > h4 {
+    font-size: 16px;
+    color: #333;
+    line-height: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: 0.15s ease-out;
+    font-weight: 700;
+    margin-top:15px;
   }
   > ol {
+    padding-right: 10px;
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        width: 100%;
+        transition: 0.25s;
+        display: block;
+        height: 40px;
+        color: #444;
+        line-height: 40px;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 400;
+        &:hover {
+          background: url("../../public/images/jlq.png") no-repeat 100%;
+          background-size: 15%;
+          margin-left: 5px;
+          color: #e32a2a;
+          font-weight: bold;
+        }
+      }
+      > .router-link-active {
+        background: url("../../public/images/jlq.png") no-repeat 100%;
+        background-size: 15%;
+      }
     }
   }
-  main {
+  > main {
     overflow: auto;
   }
   /* @media (max-width: 500px) {
