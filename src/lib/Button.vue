@@ -1,23 +1,24 @@
 <template>
-  <div class="pkm-button-box">
+ <div class="pkm-button-box">
     <button class="pkm-button" :class="classes" :disabled="disabled">
       <span class="pkm-loading" v-if="loading"></span>
       <slot />
     </button>
     <img
       class="pkm-button-img"
-      :src="images[stateKey.indexOf(`pkm-pokemon-${pokemon}`)]" v-if="!classes['pkm-theme-text']"
+      :src="images[stateKey.indexOf(`pkm-pokemon-${pokemon}`)]"
+      v-if="!classes['pkm-theme-text']"
     />
   </div>
 </template>
-<script>
+<script lang='ts'>
 import { computed } from "vue";
 
-import kbs from '../../public/images/kbs.png'
-import kmg from '../../public/images/kmg.png'
-import mwzz from '../../public/images/mwzz.png'
-import pkq from '../../public/images/pkq.png'
-import xhl from '../../public/images/xhl.png'
+import kbs from "../../public/images/kbs.png";
+import kmg from "../../public/images/kmg.png";
+import mwzz from "../../public/images/mwzz.png";
+import pkq from "../../public/images/pkq.png";
+import xhl from "../../public/images/xhl.png";
 
 // import x from '../assets/icons/yi.svg'
 export default {
@@ -59,20 +60,14 @@ export default {
       return c;
     });
     const stateKey = [
-      'pkm-pokemon-kbs',
-      'pkm-pokemon-kmg',
-      'pkm-pokemon-mwzz',
-      'pkm-pokemon-pkq',
-      'pkm-pokemon-xhl'
-    ]
-    const images = [
-      kbs,
-      kmg,
-      mwzz,
-      pkq,
-      xhl
-    ]
-    return { classes ,images,stateKey};
+      "pkm-pokemon-kbs",
+      "pkm-pokemon-kmg",
+      "pkm-pokemon-mwzz",
+      "pkm-pokemon-pkq",
+      "pkm-pokemon-xhl",
+    ];
+    const images = [kbs, kmg, mwzz, pkq, xhl];
+    return { classes, images, stateKey };
   },
   // inheritAttrs: false, //继承属性 false
 };
@@ -86,18 +81,17 @@ $green: #67c23a;
 $yellow: #e6a23c;
 $red: #f56c6c;
 
-
 $radius: 4px;
-.pkm-button-box{
+.pkm-button-box {
   position: relative;
   display: inline-block;
   margin: 20px 10px;
   /* z-index: 2; */
   /* height: $h; */
-  &:hover .pkm-button-img{
+  &:hover .pkm-button-img {
     top: -16px;
   }
- > .pkm-button-img {
+  > .pkm-button-img {
     position: absolute;
     top: -10px;
     right: -7px;

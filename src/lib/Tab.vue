@@ -1,13 +1,9 @@
-<template >
-    <div>
-        <slot />
-    </div>
+<template>
+<div>
+    <slot />
+</div>
 </template>
-<script>
-export default {
-    
-}
+<script lang='ts'>
+export default {};
 </script>
-<style lang="scss">
-    
-</style>
+<style lang="scss"></style>

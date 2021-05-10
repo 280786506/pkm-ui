@@ -1,5 +1,5 @@
 <template>
-  <template v-if="visible">
+ <template v-if="visible">
     <Teleport to="body">
       <div class="pkm-dialog-overlay" @click="closeOnClickOverlay"></div>
       <div class="pkm-dialog-wrapper">
@@ -20,7 +20,7 @@
     </Teleport>
   </template>
 </template>
-<script>
+<script lang='ts'>
 import Button from "../lib/Button.vue";
 
 export default {
@@ -52,7 +52,7 @@ export default {
       }
     };
     const cancel = () => {
-      props.cancel?.()
+      props.cancel?.();
       // context.emit("cancel");
       close();
     };

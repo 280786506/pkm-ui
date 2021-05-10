@@ -1,12 +1,12 @@
 <template>
-  <div class="pkm-switch">
+  <div class="pkm-swicth">
     <button :class="{ checked: value }" @click="toggle">
       <img :src="jlq" />
     </button>
   </div>
 </template>
-<script>
-import jlq from '../../public/images/jlq.png'
+<script lang="ts">
+import jlq from "../../public/images/jlq.png";
 export default {
   props: {
     value: Boolean,
@@ -15,14 +15,14 @@ export default {
     const toggle = () => {
       context.emit("update:value", !props.value);
     };
-    return { toggle,jlq };
+    return { toggle, jlq };
   },
 };
 </script>
 <style lang="scss">
 $h: 32px;
 $h2: $h - 4px;
-.pkm-switch {
+.pkm-swicth {
   button {
     height: $h;
     width: $h * 2;
@@ -50,18 +50,18 @@ $h2: $h - 4px;
       }
     }
     @keyframes jlq {
-      0%{
+      0% {
         transform: rotate(0);
       }
-      100%{
+      100% {
         transform: rotate(360deg);
       }
     }
     @keyframes jlq2 {
-      0%{
+      0% {
         transform: rotate(360deg);
       }
-      100%{
+      100% {
         transform: rotate(0);
       }
     }

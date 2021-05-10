@@ -9,10 +9,10 @@
           <li><router-link to="/doc/install">安装</router-link></li>
           <li><router-link to="/doc/getStarted">开始</router-link></li>
         </ol>
-        <h4 >组件</h4>
+        <h4>组件</h4>
         <ol>
           <li>
-            <router-link to="/doc/switch">Switch 开关</router-link>
+            <router-link to="/doc/swicth">Swicth 开关</router-link>
           </li>
           <li>
             <router-link to="/doc/button">Button 按钮</router-link>
@@ -54,26 +54,26 @@ export default {
     flex-grow: 1;
     padding-top: 50px;
     padding-left: 150px;
+    display: flex;
+    > main {
+      flex-grow: 1;
+      padding: 60px 16px 16px 40px;
+      background: rgb(255, 255, 255);
+    }
     @media (max-width: 500px) {
       padding-left: 0;
+      > main {
+        padding: 60px 20px 16px 20px;
+      }
     }
   }
 }
-.content {
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-  }
-  > main {
-    flex-grow: 1;
-    padding: 60px 16px 16px 40px;
-    background: rgb(255, 255, 255);
-  }
-}
+
 aside {
+  flex-shrink: 0;
   background: white;
   width: 150px;
-  padding: 16px ;
+  padding: 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -94,7 +94,7 @@ aside {
     position: relative;
     transition: 0.15s ease-out;
     font-weight: 700;
-    margin-top:15px;
+    margin-top: 15px;
   }
   > ol {
     padding-right: 10px;
@@ -105,7 +105,7 @@ aside {
         transition: 0.25s;
         display: block;
         height: 40px;
-        color: #444;
+        color: rgb(158, 158, 158);
         line-height: 40px;
         font-size: 14px;
         overflow: hidden;
@@ -113,18 +113,16 @@ aside {
         text-overflow: ellipsis;
         font-weight: 400;
         &:hover {
-          /* background: url("../../public/images/jlq.png") no-repeat 100%; */
           background-size: 15%;
           margin-left: 5px;
-          color: #e32a2a;
+          color: #1890ff;
           font-weight: bold;
         }
       }
       > .router-link-active {
-        /* background-image: url(require("../../public/images/jlq.png")); */
         background-size: 15%;
         margin-left: 5px;
-        color: #e32a2a;
+        color: #1890ff;
         font-weight: bold;
       }
     }

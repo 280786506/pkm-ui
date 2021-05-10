@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 import Doc from "./views/Doc.vue";
 import DocDemo from "./components/DocDemo.vue";
 
-import SwitchDemo from "./components/SwitchDemo.vue";
+import SwicthDemo from "./components/SwicthDemo.vue";
 import ButtonDemo from "./components/ButtonDemo.vue";
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
@@ -33,7 +33,7 @@ export const router = createRouter({
         { path: "getStarted", component: md(getStarted,'getStarted')},
         { path: "install", component: md(install,'install')},
 
-        { path: "switch", component: SwitchDemo },
+        { path: "swicth", component: SwicthDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },
         { path: "tabs", component: TabsDemo },

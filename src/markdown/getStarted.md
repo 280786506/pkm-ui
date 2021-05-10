@@ -21,6 +21,8 @@ import {Button} from "pkm-ui"
 </template>
 <script>
 import {Button} from "king-ui"
+import 'pkm-ui/dist/lib/pkm.css'
+
 export default {
   components: {Button}
 }

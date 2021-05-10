@@ -47,14 +47,12 @@ export default {
 <style lang="scss" scoped>
 .topnav {
   display: flex;
-  padding: 12px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   z-index: 10;
   background: #fff;
-  /* box-shadow: 0 0 10px #999; */
   border-bottom: 1px solid #e2e2e2;
   > .logo {
     max-width: 6em;
@@ -71,6 +69,10 @@ export default {
       margin: 0 1em;
       display: flex;
       align-items: center;
+      font-size: 14px;
+      &:hover {
+        color: #1890ff
+      }
     }
   }
   .toggleAside {
@@ -91,6 +93,7 @@ export default {
       }
     }
   }
+
   @media (max-width: 500px) {
     > .menu {
       display: none;
@@ -101,6 +104,16 @@ export default {
     > .toggleAside {
       display: block;
     }
+  }
+}
+@media (min-width: 500px) {
+  .topnav {
+    padding: 12px 200px;
+  }
+}
+@media (max-width: 500px) {
+  .topnav {
+    padding: 12px 0;
   }
 }
 </style>

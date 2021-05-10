@@ -42,17 +42,17 @@ export default {
     const defaults = context.slots.default();
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>();
-    const x = ()=>{
-        const { width } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + "px";
-        const { left: left1 } = container.value.getBoundingClientRect();
-        const { left: left2 } = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + "px";
-    }
-    onMounted(x)
-    onUpdated(x)
-    
+    const x = () => {
+      const { width } = selectedItem.value.getBoundingClientRect();
+      indicator.value.style.width = width + "px";
+      const { left: left1 } = container.value.getBoundingClientRect();
+      const { left: left2 } = selectedItem.value.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + "px";
+    };
+    onMounted(x);
+    onUpdated(x);
+
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error("子组件必须是Tab标签");
@@ -86,8 +86,8 @@ export default {
 };
 </script>
 <style lang="scss">
-$blue: #40a9ff;
-$red:#e32a2a;
+$blue: #1890ff;
+$red: #e32a2a;
 $color: #333;
 $border-color: #d9d9d9;
 .pkm-tabs {
@@ -104,7 +104,7 @@ $border-color: #d9d9d9;
         margin-left: 0;
       }
       &.selected {
-        color: $red;
+        color: $blue;
       }
     }
   }
@@ -114,7 +114,7 @@ $border-color: #d9d9d9;
   &-nav-indicator {
     position: absolute;
     height: 3px;
-    background: $red;
+    background: $blue;
     left: 0;
     bottom: -1px;
     width: 100px;
